@@ -2,16 +2,15 @@ FROM node
 
 WORKDIR /app
 
-COPY package.json /app
+COPY package.json .
 
 RUN npm install
 
-COPY . /app
+COPY . .
 
 EXPOSE 80
 
-ENV MONGODB_USERNAME=max
-
+ENV MONGODB_USERNAME=root
 ENV MONGODB_PASSWORD=secret
 
-CMD ["npm","start"]
+CMD ["npm", "start"]
