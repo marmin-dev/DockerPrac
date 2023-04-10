@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+# 어떤 종류의 리소스를 만들고 싶은지 정의
+kind: Deployment
+metadata:
+  name: story-deployment
+  labels:
+    app: story
+# 이 deployment의 사영을 제공하기 위한 spec 키 추가
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story
+  template:
+    metadata:
+      labels:
+        app: story
+    spec:
+      containers:
+        - name: story
+          image: marmindev/kub-data-demo:1
