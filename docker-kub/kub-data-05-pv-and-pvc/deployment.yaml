@@ -15,6 +15,12 @@ spec:
       containers:
         - name: story
           image: marmindev/kub-data-demo:1
+          env:
+            - name: STORY_FOLDER
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
