@@ -14,4 +14,8 @@ spec:
     spec:
       containers:
         - name: users
-          image: marmindev/kub-demo-users
+          image: marmindev/kub-demo-users:latest
+          env:
+            - name: AUTH_ADDRESS
+              # value: "10.99.228.121"
+              value: "auth-service.default"
