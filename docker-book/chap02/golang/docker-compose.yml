@@ -1,0 +1,16 @@
+version: "3"
+services:
+  master:
+    container_name: master
+    image: marmin/jenkins
+    ports:
+      - 8080:8080
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+    links:
+      - slave01
+  slave01:
+    container_name: slave01
+    image: marmin/jenkins-slave
+    environment:
+      - JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrTLjBbOEUl57TcYJ+Gt1Pxa3QOZkX7ri8u3uU5Tn++KWuJf8nCLb/zy9k0DKet4/LDK/3S+7qr6aMlI+OnDLCrx0BtrsQfTr74Vx5iQd/lebZ2uSnMA1PzrIDtkjYUCS+a0waDD0x8hr9+LIaRGIScPg46iuNcBAexVQHy4kfQMghi3ElqxpMzQAaf2RbnDC81wH/6EeuAuSXdJIwSKkUswNh9u4xu4kJKmzTj5nV1jAYHvCwPLs1NAIXW90E/KHFBqxHHIQo7l6939lSIuIeKrCg8iBwAD9JzJH5ysgfCci0QE57LI4le0XFOyuN2/7QVB2Ccj8kbI0yhLy8bHoz
