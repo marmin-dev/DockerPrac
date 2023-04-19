@@ -1,0 +1,1 @@
+FROM gihyodocker/nginx:latest
